@@ -1,0 +1,25 @@
+Name: Workflow Configuration
+start: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  strategy:
+    matrix:
+      python-version: [3.8,3.9]
+
+    steps:
+
+      -uses: actions/checkout@v3
+      -name: SetUp Python
+        uses: actions/Setup-python@v2
+
+        -name: Install Dependancy
+        run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+
+        -name: Run python
+        run: |
+        pytest run addition.py
