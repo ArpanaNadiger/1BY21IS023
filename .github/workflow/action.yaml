@@ -1,5 +1,5 @@
 Name: Workflow Configuration
-start: [push]
+run: [push]
 
 jobs:
   build:
